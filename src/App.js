@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import data from './data'
 import Categories from './Components/Categories';
 import Menu from './Components/Menu';
+
 const categories = ['all', ...new Set(data.map(item => item.category))]
 
 function App() {
@@ -12,10 +13,10 @@ function App() {
   const filterItems = (category) => {
     if (category === 'all') {
       setShownItems(data)
-    } else { 
-      const newItems = [...data.filter(item => item.category === category)]
-      setShownItems(newItems)
+      return
     }
+    const newItems = [...data.filter(item => item.category === category)]
+    setShownItems(newItems)
 
   }
 
